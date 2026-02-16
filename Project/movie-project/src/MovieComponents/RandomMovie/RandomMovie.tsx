@@ -24,8 +24,18 @@ export const RandomMovie = () => {
     case "success": 
      return (
     <div>
-      <div></div>
-      <div><img src={myQuery.data.}></img></div>
+      <div>
+        <div>
+            <span>{myQuery.data.tmdbRating}</span>
+            <span>{myQuery.data.releaseYear}</span>
+            <span>{myQuery.data.runtime} м</span>
+        </div>
+        <div>
+            <h2>{myQuery.data.title}</h2>
+            <p>{myQuery.data.plot}</p>
+        </div>
+      </div>
+      <div><img src={myQuery.data.backdropUrl} width="680" height="552" alt="backdrop image of a movie"></img></div>
     </div>
   );
   }
