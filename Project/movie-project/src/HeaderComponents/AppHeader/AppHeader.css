@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin: 24px;
+}
+
+.header_nav-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_label-input {
+  padding: 12px 16px 12px 52px;
+  border-radius: 8px;
+  border: none;
+  background-color: #393b3c;
+  min-width: 655px;
+}
+
+.header_label-input::placeholder {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header_label {
+  position: relative;
+}
+
+.header_label-logo {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 16px;
+}
+
+.header_link {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
