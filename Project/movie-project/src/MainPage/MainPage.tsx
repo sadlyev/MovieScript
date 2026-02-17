@@ -1,9 +1,10 @@
 import { fetchMovies } from "../APIRequests/FetchMovie";
 import AppHeader from "../HeaderComponents/AppHeader/AppHeader";
-import { Route, Router, BrowserRouter, Routes } from "react-router-dom";
 import { RandomMovie } from "../MovieComponents/RandomMovie/RandomMovie";
 import { queryClient } from "../queryClient";
 import { useQuery } from "@tanstack/react-query";
+import { Footer } from "../Footer/Footer";
+import "./Mainpage.css"
 
 export const MainPage = () => {
   const myQuery = useQuery(
@@ -26,9 +27,10 @@ export const MainPage = () => {
       );
     case "success":
       return (
-        <div>
+        <div className="main_page">
           <AppHeader />
           <RandomMovie movie={myQuery.data} refetch={myQuery.refetch} />
+          <Footer/>
         </div>
       );
   }

@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 42px 80px;
+}
+
+.footer_list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border: 2px solid #d7d7db;
+    border-radius: 8px;
+  }
+
+  li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+  }
+}

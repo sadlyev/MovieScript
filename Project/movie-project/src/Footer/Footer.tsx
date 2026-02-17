@@ -1,0 +1,19 @@
+import VKLogo from "../assets/Socials/vk.svg"
+import YTlogo from "../assets/Socials/youtube.svg"
+import OdnoLogo from "../assets/Socials/klassniki.svg"
+import TgLogo from "../assets/Socials/tg.svg"
+import "./Footer.css"
+
+export const Footer = () => {
+    return (
+        <footer className="footer">
+            <ul className="footer_list">
+            <li><a href="https://vk.ru/maratsadiyev"><img src={VKLogo} alt="vk logo"></img></a></li>
+            <li><a href=""><img src={YTlogo} alt="vk logo" ></img></a></li>
+            <li><a href=""><img src={OdnoLogo} alt="vk logo" ></img></a></li>
+            <li><a href=""><img src={TgLogo} alt="vk logo" ></img></a></li>  
+        </ul>
+        </footer>
+        
+    )
+}

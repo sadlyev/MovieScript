@@ -22,17 +22,18 @@ export const RandomMovie = ({movie, refetch}: {movie: any, refetch: () => void})
             <img src={StarIcon} alt="star-icon" width="16" height="16"></img>
              <span className="random_movie-info-text">{movie.tmdbRating}</span>
           </div>
-           
+           <span className="random_movie-info-text">{movie.genres[0]}</span>
             <span className="random_movie-info-text">{movie.releaseYear}</span>
             
-            <span className="random_movie-info-text">{movie.runtime} м</span>
+            <span className="random_movie-info-text">{movie.runtime} мин</span>
         </div>
         <div className="random_movie_main">
             <h2 className="random_movie-title">{movie.title}</h2>
             <p className="random_movie-desc">{movie.plot}</p>
         </div>
         <div className="random_movie-btnControl">
-         {!location.pathname.includes("/movie") ? <Link className="random_movie-transfer" to={`/movie/${movie.id}`}>О Фильме</Link> : null }
+          <button className="random_movie-transfer random_movie-transfer--blue">Трейлер</button>
+         {!location.pathname.includes("/movie") ? <Link  to={`/movie/${movie.id}`}><button className="random_movie-transfer">О Фильме</button></Link> : null }
           <button className="random_movie-control">
             <img src={LikeIcon} width="20" height="20"></img>
           </button>

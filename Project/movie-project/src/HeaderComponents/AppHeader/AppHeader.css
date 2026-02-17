@@ -20,6 +20,8 @@
   background-color: #393b3c;
   min-width: 655px;
   height: 48px;
+  outline: none;
+  color: #fff;
 }
 
 .header_label-input::placeholder {

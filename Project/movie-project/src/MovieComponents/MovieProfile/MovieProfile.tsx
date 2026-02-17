@@ -4,6 +4,7 @@ import { queryClient } from "../../queryClient";
 import { fetchMovieId } from "../../APIRequests/FetchMovie";
 import { RandomMovie } from "../RandomMovie/RandomMovie";
 import AppHeader from "../../HeaderComponents/AppHeader/AppHeader";
+import "./MovieProfile.css"
 
 const MovieProfile = () => {
   const { movieId } = useParams();
@@ -29,10 +30,20 @@ const MovieProfile = () => {
       );
     case "success":
       return (
-        <div>
+        <div className="movie_profile">
             <AppHeader></AppHeader>
           <RandomMovie movie={myQuery.data} refetch={myQuery.refetch} />
-          <div></div>
+          <div className="movie_profile-info">
+            <h2 className="movie_profile-title">О Фильме</h2>
+            <ul className="movie_profile-list">
+              <li><span>Язык Оригинала</span>  ...................   <span>{myQuery.data.language ? myQuery.data.language : "Неизвестно"}</span></li>
+              <li><span>Бюджет</span>  .....................................   <span>{myQuery.data.budget ? myQuery.data.budget : "Неизвестно"}</span></li>
+              <li><span>Выручка</span>  ....................................   <span>{myQuery.data.revenue ? myQuery.data.revenue : "Неизвестно"}</span></li>
+              <li><span>Режиссёр</span>  ..................................   <span>{myQuery.data.director ? myQuery.data.director : "Неизвестно"}</span></li>
+              <li><span>Продакшен</span>  ..............................   <span>{myQuery.data.production ? myQuery.data.production : "Неизвестно"}</span></li>
+               <li><span>Награды</span>  .....................................   <span>{myQuery.data.awardsSummary ? myQuery.data.awardsSummary : "Неизвестно"}</span></li>
+            </ul>
+          </div>
         </div>
       );
   }

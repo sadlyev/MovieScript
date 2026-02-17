@@ -16,6 +16,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
+  margin: 0 0 16px;
 }
 
 .random_movie-wrapper {
@@ -43,12 +44,14 @@
   color: #ffffff;
   font-size: 48px;
   line-height: 56px;
+  margin: 0 0 16px;
 }
 
 .random_movie-desc {
   color: rgba(255, 255, 255, 0.7);
   font-size: 24px;
   line-height: 32px;
+  margin: 0 0 60px;
 }
 
 .random_movie_main {
@@ -63,5 +66,19 @@
 
 .random_movie-btnControl {
   display: flex;
-  gap: 16px;
+  gap: 20px;
+}
+
+.random_movie-transfer {
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 28px;
+  padding: 16px 48px;
+}
+
+.random_movie-transfer--blue {
+  background-color: #67a5eb;
+  color: white;
 }
