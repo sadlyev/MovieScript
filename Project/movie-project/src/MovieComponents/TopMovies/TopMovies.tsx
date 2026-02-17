@@ -21,10 +21,11 @@ queryClient)
             return (<div><span>Что то пошло не так</span><button onClick={() => myQuery.refetch()}>Повторить</button></div>)
         case "success": 
         return (
-        <div>
-            <ul className="top_movie">
+        <div className="top_movie-container">
+            <h3 className="top_movie-title">Топ 10 фильмов</h3>
+            <ul className="top_movie-list">
                 {myQuery.data.map((movie: MovieType, i: number) => (
-                    <li key={i}><Link to={`/movie/${movie.id}`}><img src={movie.posterUrl} alt="top movie" width="224" height="336"></img></Link></li>
+                    <li className="top_movie-item" key={i}><Link to={`/movie/${movie.id}`}><span className="top_movie-number">{i + 1}</span><img className="top_movie-img" src={movie.posterUrl} alt="top movie" width="224" height="336"></img></Link></li>
                 ))}
             </ul>
             

@@ -38,6 +38,9 @@
 .random_movie-control {
   background-color: #333333;
   border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .random_movie-title {

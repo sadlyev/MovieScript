@@ -23,3 +23,15 @@ export const fetchTopMovies = async() => {
         throw er
     })
 }
+
+/* жанры фильмов*/
+
+export const fetchMovieGenres = async() => {
+    return await fetch(`https://cinemaguide.skillbox.cc/movie/genres`).then((res) => {
+        if (!res.ok)  throw new Error(`что то пошло не так ${res.status}`)
+        return res.json()
+    }).catch((er) => {
+        console.log(er.message)
+        throw er
+    })
+}
