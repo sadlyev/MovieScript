@@ -35,3 +35,7 @@ export const fetchMovieGenres = async() => {
         throw er
     })
 }
+
+export const fetchSpecificGenre = async(pageNumber : number, SpGenre: string) => {
+    return await fetch(`https://cinemaguide.skillbox.cc/movie?count=${pageNumber}&genre=${SpGenre}`).then((res) => res.json())
+}
