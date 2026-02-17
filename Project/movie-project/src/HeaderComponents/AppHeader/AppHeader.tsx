@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import AppLogo from "../../assets/маруся white.svg"
-import SearchIcon from "../../assets/Vector.svg"
+import SearchIcon from "../../assets/search.svg"
 import "./AppHeader.css"
 
 const AppHeader = () => {

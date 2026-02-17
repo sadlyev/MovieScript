@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 80px;
-  margin: 24px;
+  margin: 24px 0 56px 0;
 }
 
 .header_nav-wrapper {
@@ -19,6 +19,7 @@
   border: none;
   background-color: #393b3c;
   min-width: 655px;
+  height: 48px;
 }
 
 .header_label-input::placeholder {
