@@ -5,6 +5,7 @@ import { queryClient } from "../queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { Footer } from "../Footer/Footer";
 import "./Mainpage.css"
+import { TopMovies } from "../MovieComponents/TopMovies/TopMovies";
 
 export const MainPage = () => {
   const myQuery = useQuery(
@@ -30,6 +31,7 @@ export const MainPage = () => {
         <div className="main_page">
           <AppHeader />
           <RandomMovie movie={myQuery.data} refetch={myQuery.refetch} />
+          <TopMovies/>
           <Footer/>
         </div>
       );

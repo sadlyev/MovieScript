@@ -1,0 +1,4 @@
+.top_movie {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 224px));
+}
