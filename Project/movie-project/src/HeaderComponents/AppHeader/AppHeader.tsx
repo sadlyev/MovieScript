@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom"
-import AppLogo from "../../assets/маруся white.svg"
+import AppLogo from "../../assets/logoWhite.svg"
 import SearchIcon from "../../assets/search.svg"
 import "./AppHeader.css"
+import { lazy, useState } from "react"
+const LazyRegisterLogin = lazy(() => import("../../RegisterLogin/RegisterLogin/RegisterLogin"))
 
 const AppHeader = () => {
+
+    const [compClass, setCompClass] = useState("registerlogin_wrapper-no" )
     
     return (
         <header className="header">
@@ -16,8 +20,8 @@ const AppHeader = () => {
                 <input className="header_label-input" placeholder="поиск"></input>
             </label>
             </div>
-           
-            <Link className="header_link" to="/profile">Войти</Link>
+           <LazyRegisterLogin toggleClass={compClass}/>
+            <button className="header_link" onClick={() => setCompClass(compClass == "registerlogin_wrapper-no"  ? "" : "registerlogin_wrapper-no" )}>Войти</button>
 
         </header>
     )

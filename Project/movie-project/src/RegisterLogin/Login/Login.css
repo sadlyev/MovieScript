@@ -1,0 +1,42 @@
+.login_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login_form-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 100%;
+    padding: 16px 16px 16px 52px;
+    border-radius: 8px;
+    border: 1px solid #00000066;
+    font-size: 18px;
+    line-height: 24px;
+    outline: none;
+  }
+
+  input:hover,
+  input:focus-visible {
+    border: 1px solid #b4a9ff;
+  }
+
+  input::placeholder {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.login_form-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

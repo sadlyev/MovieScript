@@ -1,0 +1,23 @@
+.registerlogin_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  background-color: #fff;
+  padding: 64px 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.registerlogin_wrapper-no {
+  display: none;
+}
+
+.registerlogin_icon {
+  margin: 0 0 40px;
+}
