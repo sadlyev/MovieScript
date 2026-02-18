@@ -5,6 +5,7 @@ import { fetchMovieId } from "../../APIRequests/FetchMovie";
 import { RandomMovie } from "../RandomMovie/RandomMovie";
 import AppHeader from "../../HeaderComponents/AppHeader/AppHeader";
 import "./MovieProfile.css"
+import { Footer } from "../../Footer/Footer";
 
 const MovieProfile = () => {
   const { movieId } = useParams();
@@ -44,6 +45,7 @@ const MovieProfile = () => {
                <li><span>Награды</span>  .....................................   <span>{myQuery.data.awardsSummary ? myQuery.data.awardsSummary : "Неизвестно"}</span></li>
             </ul>
           </div>
+          <Footer/>
         </div>
       );
   }
