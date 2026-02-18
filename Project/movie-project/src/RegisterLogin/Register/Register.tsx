@@ -17,7 +17,7 @@ export const Register = () => {
     const [errorValue, setErrorvalue] = useState({email: true, name: true, surname: true, password: true,  samePassword: true})
     
      const myMutation = useMutation({
-            mutationFn: () => registerUser(userEmail, userName, userSurname, userPassword),
+            mutationFn: () => registerUser(userEmail, userPassword, userName, userSurname),
             mutationKey: ["user"]
         },
     queryClient)
@@ -27,11 +27,11 @@ export const Register = () => {
 
         const newErrors = {email: true, name: true, surname: true, password: true,  samePassword: true}
 
-        if (!userEmail) return newErrors.email = false
-        if (!userName) return newErrors.name = false
-        if(!userSurname) return newErrors.surname = false
-        if(!userPassword) return newErrors.password = false
-        if(!userSamePassword) return newErrors.samePassword = false
+        if (!userEmail)  newErrors.email = false
+        if (!userName)  newErrors.name = false
+        if(!userSurname)  newErrors.surname = false
+        if(!userPassword)  newErrors.password = false
+        if(!userSamePassword)  newErrors.samePassword = false
          
         setErrorvalue(newErrors)
 

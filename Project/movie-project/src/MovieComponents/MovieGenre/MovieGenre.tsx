@@ -1,3 +1,4 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchMovieGenres } from "../../APIRequests/FetchMovie";
 import { queryClient } from "../../queryClient";
@@ -38,7 +39,7 @@ const srcArray: any = [
   img5,
 ];
 
-const MovieGenre = () => {
+const MovieGenre = React.memo(() => {
   const myQuery = useQuery(
     {
       queryFn: () => fetchMovieGenres(),
@@ -74,6 +75,6 @@ const MovieGenre = () => {
         </div>
       );
   }
-};
+})
 
 export default MovieGenre;

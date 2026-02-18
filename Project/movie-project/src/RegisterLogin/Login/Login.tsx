@@ -2,6 +2,9 @@ import { useState } from "react"
 import EmailIcon from "../../assets/email.svg"
 import PasswordIcon from "../../assets/password.svg"
 import "./Login.css"
+import { useMutation } from "@tanstack/react-query"
+import { loginUser } from "../../APIRequests/FetchUser"
+import { queryClient } from "../../queryClient"
 
 export const Login = () => {
 
@@ -10,26 +13,24 @@ export const Login = () => {
     const [passwordValue, setPasswordValue] = useState("")
     const [errorValue,  setErrorValue] = useState({email: true, password: true})
 
+    const myMutation = useMutation({
+        mutationFn: () => loginUser(emailValue, passwordValue),
+        mutationKey: ["user"]
+    },
+queryClient)
+
 
     function handleSubmit(e : React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const newError = {email: true, password: true }
 
-        if (!emailValue) {
-            newError.email = false
-        }
-
-        if (!passwordValue) {
-            newError.password = false
-        }
-
+        if (!emailValue)  newError.email = false
+        if (!passwordValue)  newError.password = false
+        
         setErrorValue(newError)
-
-        if (!newError.email || !newError.password) {
-            return
-        } else {
-            console.log("login values are correct")
-        } 
+        if (!newError.email || !newError.password)   return 
+        myMutation.mutate()
+  
     }
     return (
         <form  onSubmit={handleSubmit} className="login_form">
