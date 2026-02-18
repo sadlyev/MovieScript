@@ -1,12 +1,15 @@
 .login_form {
   display: flex;
   flex-direction: column;
+  margin: 0 0 24px;
+  width: 100%;
 }
 
 .login_form-wrapper {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0 0 24px;
 }
 
 .login_form-label {
@@ -39,4 +42,14 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  left: 16px;
+}
+
+.login_form-btn {
+  background-color: #67a5eb;
+  color: white;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 28px;
+  padding: 16px 48px;
 }

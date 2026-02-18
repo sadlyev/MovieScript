@@ -7,7 +7,9 @@ const LazyRegisterLogin = lazy(() => import("../../RegisterLogin/RegisterLogin/R
 
 const AppHeader = () => {
 
-    const [compClass, setCompClass] = useState("registerlogin_wrapper-no" )
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleModal = () => setIsOpen(prev => !prev)
     
     return (
         <header className="header">
@@ -20,8 +22,8 @@ const AppHeader = () => {
                 <input className="header_label-input" placeholder="поиск"></input>
             </label>
             </div>
-           <LazyRegisterLogin toggleClass={compClass}/>
-            <button className="header_link" onClick={() => setCompClass(compClass == "registerlogin_wrapper-no"  ? "" : "registerlogin_wrapper-no" )}>Войти</button>
+           <LazyRegisterLogin toggleClass={isOpen ? "" : "registerlogin_wrapper-no" } fnToggle={toggleModal}/>
+            <span className="header_link" onClick={toggleModal}>Войти</span>
 
         </header>
     )

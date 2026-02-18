@@ -13,19 +13,19 @@ export const Login = () => {
 
     function handleSubmit(e : React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        const errorValue = {email: true, password: true }
+        const newError = {email: true, password: true }
 
         if (!emailValue) {
-            errorValue.email = false
+            newError.email = false
         }
 
         if (!passwordValue) {
-            errorValue.password = false
+            newError.password = false
         }
 
-        setErrorValue(errorValue)
+        setErrorValue(newError)
 
-        if (!errorValue.email || !errorValue.password) {
+        if (!newError.email || !newError.password) {
             return
         } else {
             console.log("login values are correct")
@@ -36,14 +36,14 @@ export const Login = () => {
             <div className="login_form-wrapper">
                 <label className="login_form-label">
                     <img className="login_form-icon" src={EmailIcon} width="24" height="24"></img>
-                <input  name="email" placeholder="Электронная почта" style={!errorValue.email ?{ border: "2px solid red"} : undefined} value={emailValue} onChange={(e) => setEmailValue(e.target.value)} ></input>
+                <input   placeholder="Электронная почта" style={!errorValue.email ?{ border: "2px solid red"} : undefined} value={emailValue} onChange={(e) => setEmailValue(e.target.value)} ></input>
             </label>
             <label className="login_form-label">
                 <img className="login_form-icon" src={PasswordIcon} width="24" height="24"></img>
-                <input name="password" className="login_email-input" placeholder="Пароль" style={!errorValue.password ?{ border: "2px solid red"} : undefined} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} ></input>
+                <input  className="login_email-input" placeholder="Пароль" style={!errorValue.password ?{ border: "2px solid red"} : undefined} value={passwordValue} onChange={(e) => setPasswordValue(e.target.value)} ></input>
             </label>
             </div>
-            <button>Войти</button>
+            <button className="login_form-btn">Войти</button>
         </form>
     )
 }

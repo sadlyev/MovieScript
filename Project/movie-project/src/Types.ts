@@ -26,3 +26,5 @@ director:	string
 production:	string
 awardsSummary:	string
 }
+
+export type RegisterUser = {email: string, password: string, name: string, surname: string}
