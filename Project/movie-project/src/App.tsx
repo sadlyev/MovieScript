@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import { lazy, Suspense } from 'react'
-import {Route, Router, BrowserRouter, Routes } from 'react-router-dom'
+import {Route, BrowserRouter, Routes } from 'react-router-dom'
 import { MainPage } from './MainPage/MainPage'
-import MovieGenre from './MovieComponents/MovieGenre/MovieGenre'
-import MovieSplitGenre from './MovieComponents/MovieSplitGenre/MovieSplitGenre'
+const LazyMovieGenre = lazy(() => import("./MovieComponents/MovieGenre/MovieGenre"))
+const LazyMovieSplitGenre = lazy(() => import("./MovieComponents/MovieSplitGenre/MovieSplitGenre"))
 const LazyMovieProfile = lazy(() => import("./MovieComponents/MovieProfile/MovieProfile"))
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
        <Routes>
       <Route path="/" element={<MainPage/>}></Route>
       <Route path="/movie/:movieId" element={<LazyMovieProfile/>}></Route>
-      <Route path="/movie/genre" element={<MovieGenre/>}></Route>
-      <Route path="/movie/genre/:searchGenre" element={<MovieSplitGenre/>}></Route>
+      <Route path="/movie/genre" element={<LazyMovieGenre/>}></Route>
+      <Route path="/movie/genre/:searchGenre" element={<LazyMovieSplitGenre/>}></Route>
     </Routes>
 
     </Suspense>

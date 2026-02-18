@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { fetchSpecificGenre } from "../../APIRequests/FetchMovie";
 import { useParams } from "react-router-dom";
 import { queryClient } from "../../queryClient";
@@ -7,20 +7,21 @@ import { Footer } from "../../Footer/Footer";
 import "./MovieSplitGenre.css"
 import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/arrow.svg"
+import { useState } from "react";
+import NoPhoto from "../../assets/img/im.jpg"
 
 const MovieSplitGenre = () => {
   const { searchGenre } = useParams();
-  const myQuery = useQuery(
-    {
-      queryFn: () => fetchSpecificGenre(15, searchGenre || ""),
-      queryKey: ["searchGenre"],
-    },
-    queryClient,
+  const myQuery = useInfiniteQuery({
+    queryFn: ({pageParam}) => fetchSpecificGenre(pageParam, searchGenre || ""),
+    queryKey: ["searchGenre", searchGenre],
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => lastPage.length === 15 ? allPages.length + 1 : undefined,
+  },
+  queryClient
   );
 
   switch (myQuery.status) {
-    case "pending":
-      return <span>Loading...</span>;
     case "error":
       return (
         <div>
@@ -39,11 +40,12 @@ const MovieSplitGenre = () => {
             </Link>
            
             <ul className="genre_movie-list">
-                {myQuery.data.map((genre: any, i: number) => (
-                <li key={i}><Link to={`/movie/${genre.id}`}><img src={genre.backdropUrl} width="224" height="336"></img></Link></li>
-                ))}
+                {myQuery.data.pages.flatMap(page => page).map((genre: any, i: number) => (
+                <li key={i}><Link to={`/movie/${genre.id}`}><img src={genre.backdropUrl ? genre.backdropUrl : NoPhoto} width="224" height="336"></img></Link></li>
+                ))} 
             </ul>
-            <button className="genre_movie-btn">Показать еще</button>
+            {myQuery.hasNextPage ? <button onClick={() =>myQuery.fetchNextPage()} className="genre_movie-btn">Показать еще</button> : null}
+            
 
             </div>
            
