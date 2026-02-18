@@ -7,11 +7,12 @@ import { Footer } from "../../Footer/Footer";
 import "./MovieSplitGenre.css"
 import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/arrow.svg"
-import { useState } from "react";
 import NoPhoto from "../../assets/img/im.jpg"
 
 const MovieSplitGenre = () => {
+
   const { searchGenre } = useParams();
+
   const myQuery = useInfiniteQuery({
     queryFn: ({pageParam}) => fetchSpecificGenre(pageParam, searchGenre || ""),
     queryKey: ["searchGenre", searchGenre],
@@ -45,13 +46,9 @@ const MovieSplitGenre = () => {
                 ))} 
             </ul>
             {myQuery.hasNextPage ? <button onClick={() =>myQuery.fetchNextPage()} className="genre_movie-btn">Показать еще</button> : null}
-            
-
-            </div>
-           
+            </div> 
           <Footer/>
         </div>
-        
       );
   }
 };
