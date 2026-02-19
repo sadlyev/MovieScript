@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query"
 import { queryClient } from "../../queryClient"
 import { registerUser } from "../../APIRequests/FetchUser"
 
-export const Register = () => {
+ const Register = () => {
 
     const [userEmail, setUserEmail] = useState("")
     const [userName, setUserName] = useState("")
@@ -19,8 +19,7 @@ export const Register = () => {
      const myMutation = useMutation({
             mutationFn: () => registerUser(userEmail, userPassword, userName, userSurname),
             mutationKey: ["user"]
-        },
-    queryClient)
+        },queryClient)
 
     function handleRegister(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -35,13 +34,8 @@ export const Register = () => {
          
         setErrorvalue(newErrors)
 
-        if(!newErrors.email || !newErrors.name || !newErrors.surname || !newErrors.password || !newErrors.samePassword || userPassword !== userSamePassword) {
-            return
-        } else {
-            console.log("tests are passing")
+        if(!newErrors.email || !newErrors.name || !newErrors.surname || !newErrors.password || !newErrors.samePassword || userPassword !== userSamePassword)   return 
             myMutation.mutate()
-        }
-
     }
 
 
@@ -75,3 +69,5 @@ export const Register = () => {
             </form>
     )
 }
+
+export default Register

@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery} from "@tanstack/react-query";
 import { fetchSpecificGenre } from "../../APIRequests/FetchMovie";
 import { useParams } from "react-router-dom";
 import { queryClient } from "../../queryClient";

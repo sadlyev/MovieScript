@@ -3,8 +3,9 @@ import YTlogo from "../assets/Socials/youtube.svg"
 import OdnoLogo from "../assets/Socials/klassniki.svg"
 import TgLogo from "../assets/Socials/tg.svg"
 import "./Footer.css"
+import React from "react"
 
-export const Footer = () => {
+export const Footer = React.memo(() => {
     return (
         <footer className="footer">
             <ul className="footer_list">
@@ -16,4 +17,4 @@ export const Footer = () => {
         </footer>
         
     )
-}
+})

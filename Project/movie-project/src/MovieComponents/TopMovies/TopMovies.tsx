@@ -4,8 +4,9 @@ import { fetchTopMovies } from "../../APIRequests/FetchMovie"
 import { Link } from "react-router-dom"
 import type { MovieType } from "../../Types"
 import "./TopMovies.css"
+import React from "react"
 
-export const TopMovies = () => {
+ const TopMovies = React.memo(() => {
 
 
     const myQuery = useQuery({
@@ -34,4 +35,6 @@ queryClient)
 
 
     }
-}
+})
+
+export default TopMovies

@@ -6,8 +6,7 @@ import { useMutation } from "@tanstack/react-query"
 import { loginUser } from "../../APIRequests/FetchUser"
 import { queryClient } from "../../queryClient"
 
-export const Login = () => {
-
+ const Login = () => {
 
     const [emailValue,  setEmailValue] = useState("")
     const [passwordValue, setPasswordValue] = useState("")
@@ -16,8 +15,7 @@ export const Login = () => {
     const myMutation = useMutation({
         mutationFn: () => loginUser(emailValue, passwordValue),
         mutationKey: ["user"]
-    },
-queryClient)
+    },  queryClient)
 
 
     function handleSubmit(e : React.FormEvent<HTMLFormElement>) {
@@ -30,7 +28,6 @@ queryClient)
         setErrorValue(newError)
         if (!newError.email || !newError.password)   return 
         myMutation.mutate()
-  
     }
     return (
         <form  onSubmit={handleSubmit} className="login_form">
@@ -48,3 +45,5 @@ queryClient)
         </form>
     )
 }
+
+export default Login

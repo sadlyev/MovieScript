@@ -1,0 +1,45 @@
+.profile_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.profile_title {
+  color: #fff;
+  margin: 0 0 64px;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.profile_nav-wrapper {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile_nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  outline: none;
+  color: #fff;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  position: relative;
+}
+
+.profile_nav-btn--active::before {
+  background-color: #dc5dfc;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
