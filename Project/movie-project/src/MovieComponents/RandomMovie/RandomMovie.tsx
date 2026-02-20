@@ -1,4 +1,5 @@
 import LikeIcon from "../../assets/like.svg"
+import LikedIcon from "../../assets/Vector.svg"
 import "./RandomMovie.css"
 import StarIcon from "../../assets/star.svg"
 import BlockPhoto from "../../assets/img/im.jpg"
@@ -7,21 +8,36 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query"
 import { queryClient } from "../../queryClient"
 import { fetchFavorite } from "../../APIRequests/FetchMovie"
+import { useState } from "react"
+import { fetchRemoveFavorite } from "../../APIRequests/FetchMovie"
 
 
 
 export const RandomMovie = ({movie, refetch}: {movie: any, refetch: () => void}) => {
+
+  const [liked, setLiked] = useState(false)
 
   const location = useLocation()
 
     const myMutation = useMutation({
       mutationFn: () => fetchFavorite(String(movie.id)),
       mutationKey: ["favoriteMovie", movie.id]
-    },
-  queryClient)
+    },queryClient)
+
+    const myMutationDelete = useMutation({
+        mutationFn: () => fetchRemoveFavorite(Number(movie.id)),
+        onSuccess: () => {
+            queryClient.invalidateQueries({queryKey: ["favoriteMovie", movie.id]})
+        }
+      },queryClient)
 
     function handleLiking() {
-      myMutation.mutate()
+      if (liked) {
+        myMutationDelete.mutate(); // remove
+      } else {
+        myMutation.mutate(); // add
+      }
+      setLiked((prev) => (prev == false ? true : false));
     }
   
 
@@ -46,7 +62,7 @@ export const RandomMovie = ({movie, refetch}: {movie: any, refetch: () => void})
               <button className="random_movie-transfer random_movie-transfer--blue">Трейлер</button>
               {!location.pathname.includes("/movie") ? <Link  to={`/movie/${movie.id}`}><button className="random_movie-transfer">О Фильме</button></Link> : null }
               <button onClick={handleLiking} className="random_movie-control">
-                <img src={LikeIcon} width="20" height="20"></img>
+                <img src={liked ? LikedIcon : LikeIcon}  width="20" height="20"></img>
               </button>
               {!location.pathname.includes("/movie") ? <button className="random_movie-control" onClick={() => refetch()}>
                 <img src={RefetchIcon} width="20" height="20"></img>

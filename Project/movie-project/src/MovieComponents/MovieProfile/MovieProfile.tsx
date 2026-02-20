@@ -22,7 +22,6 @@ const MovieProfile = () => {
     case "pending":
       return <div>Загрузка...</div>;
     case "error":
-      console.log("big error");
       return (
         <div>
           <span>Произошла Ошибка</span>

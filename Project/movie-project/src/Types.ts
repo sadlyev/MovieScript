@@ -5,7 +5,7 @@ originalTitle:	string
 language:	string
 relaseYear:number
 releaseDate:	string
-genres:	[]
+genres:	string[]
 plot:	string
 runtime:number
 budget:	string
@@ -18,9 +18,9 @@ trailerUrl:	string
 trailerYoutubeId:	string
 tmdbRating:	number
 searchL:	string
-keywords:	[]
-countriesOfOrigin:	[]
-languages:	[]
+keywords:	string[]
+countriesOfOrigin:	string[]
+languages:	string[]
 cast:	[]
 director:	string
 production:	string

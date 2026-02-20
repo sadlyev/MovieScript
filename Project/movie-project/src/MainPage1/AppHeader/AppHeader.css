@@ -1,27 +1,24 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 80px;
   margin: 24px 0 56px 0;
+  width: 100%;
+}
+
+.header_inner {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 80px;
 }
 
 .header_nav-wrapper {
   display: flex;
   gap: 40px;
-  justify-content: center;
-  align-items: center;
-}
-
-.header_label-input {
-  padding: 12px 16px 12px 52px;
-  border-radius: 8px;
-  border: none;
-  background-color: #393b3c;
-  min-width: 655px;
-  height: 48px;
-  outline: none;
-  color: #fff;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
 .header_label-input::placeholder {
@@ -31,6 +28,7 @@
 
 .header_label {
   position: relative;
+  width: 100%;
 }
 
 .header_label-logo {

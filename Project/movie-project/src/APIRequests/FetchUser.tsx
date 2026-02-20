@@ -14,6 +14,7 @@ export const registerUser = async (
   });
 };
 
+// логин 
 export const loginUser = async (email: string, password: string) => {
   const response = await fetch("https://cinemaguide.skillbox.cc/auth/login", {
     method: "POST",
@@ -30,6 +31,8 @@ export const loginUser = async (email: string, password: string) => {
   return data;
 };
 
+
+
 export const fetchUserData = async () => {
     const res =  await fetch("https://cinemaguide.skillbox.cc/profile", {
         credentials: "include"
@@ -37,4 +40,13 @@ export const fetchUserData = async () => {
 
     if (!res.ok) throw new Error("Пользователя нет")
     return await res.json()
+}
+
+export const fetchUserLogout = async() => {
+  const res = await fetch("https://cinemaguide.skillbox.cc/auth/logout", {
+    credentials: "include"
+  })
+
+  if (!res.ok) throw new Error("что то пошло не так ")
+    return res.json()
 }

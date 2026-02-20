@@ -92,3 +92,9 @@ export const fetchRemoveFavorite = async(id: number) => {
   if (!res.ok) throw new Error("removing movie failed")
     return res.json()
 }
+
+export const fetchMovieTitle = async (value: string) => {
+  const res = await fetch(`https://cinemaguide.skillbox.cc/movie?count=5&title=${value}`)
+  if (!res.ok) throw new Error("произошла ошибка при поиске фильмов")
+    return res.json()
+}
