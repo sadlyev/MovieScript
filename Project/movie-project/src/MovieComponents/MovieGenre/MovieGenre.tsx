@@ -4,7 +4,7 @@ import { fetchMovieGenres } from "../../APIRequests/FetchMovie";
 import { queryClient } from "../../queryClient";
 import { Link } from "react-router-dom";
 import "./MovieGenre.css";
-import AppHeader from "../../HeaderComponents/AppHeader/AppHeader";
+import AppHeader from "../../MainPage1/AppHeader/AppHeader";
 import img1 from "../../assets/img/genre1.png";
 import img2 from "../../assets/img/genre2.png";
 import img3 from "../../assets/img/genre3.png";
@@ -13,7 +13,7 @@ import img5 from "../../assets/img/genre5.png";
 import img6 from "../../assets/img/genre6.png";
 import img7 from "../../assets/img/genre7.png";
 import img8 from "../../assets/img/genre8.png";
-import { Footer } from "../../Footer/Footer";
+import { Footer } from "../../MainPage1/Footer/Footer";
 
 const srcArray: any = [
   img1,

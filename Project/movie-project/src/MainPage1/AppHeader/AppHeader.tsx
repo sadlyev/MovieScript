@@ -6,7 +6,7 @@ import { lazy, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { queryClient } from "../../queryClient"
 import { fetchUserData } from "../../APIRequests/FetchUser"
-const LazyRegisterLogin = lazy(() => import("../../RegisterLogin/RegisterLogin/RegisterLogin"))
+const LazyRegisterLogin = lazy(() => import("../../UserComponents/RegisterLogin/RegisterLogin"))
 import React from "react"
 
 const AppHeader = React.memo(() => {

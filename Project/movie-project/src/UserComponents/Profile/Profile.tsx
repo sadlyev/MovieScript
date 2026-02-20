@@ -1,10 +1,10 @@
 import React from "react"
-import AppHeader from "../HeaderComponents/AppHeader/AppHeader"
-import { Footer } from "../Footer/Footer"
+import AppHeader from "../../MainPage1/AppHeader/AppHeader"
+import { Footer } from "../../MainPage1/Footer/Footer"
 import "./Profile.css"
 import { useState } from "react"
-import LikeIcon from "../assets/like.svg"
-import UserIcon from "../assets/whiteUser.svg"
+import LikeIcon from "../../assets/like.svg"
+import UserIcon from "../../assets/whiteUser.svg"
 import FavoriteMovie from "../FavoriteMovies/FavoriteMovie"
 
 const Profile = React.memo(() => {

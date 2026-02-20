@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { queryClient } from "../../queryClient";
 import { fetchMovieId } from "../../APIRequests/FetchMovie";
 import { RandomMovie } from "../RandomMovie/RandomMovie";
-import AppHeader from "../../HeaderComponents/AppHeader/AppHeader";
+import AppHeader from "../../MainPage1/AppHeader/AppHeader";
 import "./MovieProfile.css"
-import { Footer } from "../../Footer/Footer";
+import { Footer } from "../../MainPage1/Footer/Footer";
 
 const MovieProfile = () => {
   const { movieId } = useParams();

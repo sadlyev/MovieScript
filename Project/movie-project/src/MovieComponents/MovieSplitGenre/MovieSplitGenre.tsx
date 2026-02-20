@@ -2,8 +2,8 @@ import { useInfiniteQuery} from "@tanstack/react-query";
 import { fetchSpecificGenre } from "../../APIRequests/FetchMovie";
 import { useParams } from "react-router-dom";
 import { queryClient } from "../../queryClient";
-import AppHeader from "../../HeaderComponents/AppHeader/AppHeader";
-import { Footer } from "../../Footer/Footer";
+import AppHeader from "../../MainPage1/AppHeader/AppHeader";
+import { Footer } from "../../MainPage1/Footer/Footer";
 import "./MovieSplitGenre.css"
 import { Link } from "react-router-dom";
 import ArrowIcon from "../../assets/arrow.svg"

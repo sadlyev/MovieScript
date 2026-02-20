@@ -1,12 +1,12 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryClient } from "../queryClient";
+import { queryClient } from "../../queryClient";
 import { Link } from "react-router-dom";
-import type { MovieType } from "../Types";
+import type { MovieType } from "../../Types";
 import "./FavoriteMovie.css";
-import CloseIcon from "../assets/close.svg";
-import { fetchRemoveFavorite } from "../APIRequests/FetchMovie";
+import CloseIcon from "../../assets/close.svg";
+import { fetchRemoveFavorite } from "../../APIRequests/FetchMovie";
 import React, { useState } from "react";
-import { fetchFavoriteMovies } from "../APIRequests/FetchMovie";
+import { fetchFavoriteMovies } from "../../APIRequests/FetchMovie";
 
 const FavoriteMovie = React.memo(() => {
 

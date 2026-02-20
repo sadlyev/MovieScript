@@ -1,12 +1,12 @@
-import { fetchMovies } from "../APIRequests/FetchMovie";
-import AppHeader from "../HeaderComponents/AppHeader/AppHeader";
-import { RandomMovie } from "../MovieComponents/RandomMovie/RandomMovie";
-import { queryClient } from "../queryClient";
+import { fetchMovies } from "../../APIRequests/FetchMovie";
+import AppHeader from "../AppHeader/AppHeader";
+import { RandomMovie } from "../../MovieComponents/RandomMovie/RandomMovie";
+import { queryClient } from "../../queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { Footer } from "../Footer/Footer";
 import "./Mainpage.css"
 import { lazy } from "react";
-const LazyTopMovies = lazy(() => import("../MovieComponents/TopMovies/TopMovies"))
+const LazyTopMovies = lazy(() => import("../../MovieComponents/TopMovies/TopMovies"))
 
 export const MainPage = () => {
   const myQuery = useQuery(

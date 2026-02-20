@@ -1,8 +1,8 @@
 import './App.css'
 import { lazy, Suspense } from 'react'
 import {Route, BrowserRouter, Routes } from 'react-router-dom'
-import { MainPage } from './MainPage/MainPage'
-const LazyProfile = lazy(() => import("./Profile/Profile"))
+import { MainPage } from './MainPage1/MainPage/MainPage'
+const LazyProfile = lazy(() => import("./UserComponents/Profile/Profile"))
 const LazyMovieGenre = lazy(() => import("./MovieComponents/MovieGenre/MovieGenre"))
 const LazyMovieSplitGenre = lazy(() => import("./MovieComponents/MovieSplitGenre/MovieSplitGenre"))
 const LazyMovieProfile = lazy(() => import("./MovieComponents/MovieProfile/MovieProfile"))

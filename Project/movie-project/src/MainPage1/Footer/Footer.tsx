@@ -1,7 +1,7 @@
-import VKLogo from "../assets/Socials/vk.svg"
-import YTlogo from "../assets/Socials/youtube.svg"
-import OdnoLogo from "../assets/Socials/klassniki.svg"
-import TgLogo from "../assets/Socials/tg.svg"
+import VKLogo from "../../assets/Socials/vk.svg"
+import YTlogo from "../../assets/Socials/youtube.svg"
+import OdnoLogo from "../../assets/Socials/klassniki.svg"
+import TgLogo from "../../assets/Socials/tg.svg"
 import "./Footer.css"
 import React from "react"
 
