@@ -13,7 +13,7 @@ const MovieProfile = () => {
   const myQuery = useQuery(
     {
       queryFn: () => fetchMovieId(Number(movieId)),
-      queryKey: ["movieId"],
+      queryKey: ["movieId", movieId],
     },
     queryClient,
   );

@@ -4,23 +4,39 @@ const LazyLogin = lazy(() => import("../Login/Login"))
 const LazyRegister = lazy(() => import("../Register/Register")) 
 import "./RegisterLogin.css"
 import CloseIcon from "../../assets/close.svg"
+import React from "react"
 
-const RegisterLogin = ({toggleClass, fnToggle} : {toggleClass: string, fnToggle: () => void}) => {
-
-    const [pageAuth,  setPageAuth] = useState("login")
+const RegisterLogin = React.memo(({toggleClass, fnToggle} : {toggleClass: string, fnToggle: () => void}) => {
+    const [pageAuth, setPageAuth] = useState("login")
+    const [isRegistered, setIsRegistered] = useState(false) 
 
     function handlePage() {
-        return setPageAuth((page) => page === "login" ? "register" : "login")
+        if (pageAuth === "register" || isRegistered) {
+            setPageAuth("login")
+            setIsRegistered(false)
+        } else {
+            setPageAuth("register")
+        }
     }
     
     return (
         <div className={`${toggleClass} registerlogin_wrapper`}>
-            <button onClick={() => fnToggle()} className="registerlogin_close-btn"><img src={CloseIcon} width="20" height="20"></img></button>
-            <img className="registerlogin_icon" src={ProjectIcon} width={pageAuth === "login" ? "156" : "136"} height="35"></img>
-            {pageAuth === "login" ? <LazyLogin/> : <LazyRegister/>  }
-            <span className="registerlogin_btn" onClick={handlePage}>{pageAuth === "login" ? "Регистрация" : "У меня есть пароль"}</span>
+            <button onClick={fnToggle} className="registerlogin_close-btn">
+                <img src={CloseIcon} width="20" height="20" alt="close" />
+            </button>
+            <img className="registerlogin_icon" src={ProjectIcon} 
+                 width={pageAuth === "login" ? "156" : "136"} height="35" alt="logo" />
+
+            {pageAuth === "login" ? 
+                <LazyLogin fnToggle={fnToggle} /> : 
+                <LazyRegister toggleText={setIsRegistered}/> 
+            }
+
+            <span className="registerlogin_btn" onClick={handlePage}>
+                {(pageAuth === "register" || isRegistered) ? "Войти" : "Регистрация"}
+            </span>
         </div>
     )
-}
+})
 
 export default RegisterLogin

@@ -7,6 +7,8 @@ import StarIcon from "../../assets/star.svg";
 import SearchIcon from "../../assets/search.svg";
 import type { MovieType } from "../../Types";
 import "./SearchedMovieList.css";
+import { Link, useLocation } from "react-router-dom";
+
 
 function useDebounce(value: string, delay: number) {
   const [debounced, setDebounced] = React.useState(value);
@@ -29,6 +31,12 @@ const SearchedMovie = () => {
     enabled: !!debouncedValue,
   }, queryClient);
 
+  const location = useLocation();
+
+  React.useEffect(() => {
+    setSearchValue(""); 
+  }, [location.pathname]);
+
   return (
     <div className="header_label" >
       <img src={SearchIcon}  className="header_label-logo"   width={20}    height={20} alt="search icon" />
@@ -39,8 +47,8 @@ const SearchedMovie = () => {
           {isError && (<div> Ошибка поиска <button onClick={() => refetch()}>Повторить</button> </div> )}
           {data && data.length === 0 && ( <div style={{ color: "#bcbdbd" }}>Ничего не найдено</div> )}
           {data &&
-            data.slice(0, 5).map((movie: MovieType, i: number) => (
-              <div className="search_movie" key={i}>
+            data.map((movie: MovieType, i: number) => (
+              <Link to={`/movie/${movie.id}`} className="search_movie" key={i}>
                 <img src={movie.posterUrl} width={40} height={52} alt={movie.title} loading="lazy" />
                 <div className="search_movie-data">
                   <div className="search_movie-info">
@@ -53,7 +61,7 @@ const SearchedMovie = () => {
                   </div>
                   <p>{movie.title}</p>
                 </div>
-              </div> ))}
+              </Link> ))}
         </div> )}
     </div>
   );

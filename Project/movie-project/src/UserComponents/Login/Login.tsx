@@ -6,7 +6,7 @@ import { useMutation } from "@tanstack/react-query"
 import { loginUser } from "../../APIRequests/FetchUser"
 import { queryClient } from "../../queryClient"
 
- const Login = () => {
+ const Login = ({fnToggle} : {fnToggle: () => void}) => {
 
     const [emailValue,  setEmailValue] = useState("")
     const [passwordValue, setPasswordValue] = useState("")
@@ -30,6 +30,7 @@ import { queryClient } from "../../queryClient"
         setErrorValue(newError)
         if (!newError.email || !newError.password)   return 
         myMutation.mutate()
+        fnToggle()
     }
     return (
         <form  onSubmit={handleSubmit} className="login_form">

@@ -7,68 +7,80 @@ import { useMutation } from "@tanstack/react-query"
 import { queryClient } from "../../queryClient"
 import { registerUser } from "../../APIRequests/FetchUser"
 
- const Register = () => {
+interface RegisterProps {
+    toggleText: (val: boolean) => void;
+}
 
-    const [userEmail, setUserEmail] = useState("")
-    const [userName, setUserName] = useState("")
-    const [userSurname,  setUserSurname] = useState("")
-    const [userPassword,  setUserPassword] = useState("")
-    const [userSamePassword, setUserSamePassword] = useState("")
-    const [errorValue, setErrorvalue] = useState({email: true, name: true, surname: true, password: true,  samePassword: true})
-    
-     const myMutation = useMutation({
-            mutationFn: () => registerUser(userEmail, userPassword, userName, userSurname),
-            onSuccess: () => {
-                queryClient.invalidateQueries({queryKey: ["user"]})
-            }
-        },queryClient)
+const Register = ({ toggleText }: RegisterProps) => {
+    const [formData, setFormData] = useState({ email: "",  name: "", surname: "", password: "",  confirmPassword: "" })
+    const [errors, setErrors] = useState<Record<string, boolean>>({})
 
-    function handleRegister(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+    const mutation = useMutation({
+        mutationFn: () => registerUser(formData.email, formData.password, formData.name, formData.surname),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["user"] })
+            toggleText(true); 
+        }
+    }, queryClient)
 
-        const newErrors = {email: true, name: true, surname: true, password: true,  samePassword: true}
-
-        if (!userEmail)  newErrors.email = false
-        if (!userName)  newErrors.name = false
-        if(!userSurname)  newErrors.surname = false
-        if(!userPassword)  newErrors.password = false
-        if(!userSamePassword)  newErrors.samePassword = false
-         
-        setErrorvalue(newErrors)
-
-        if(!newErrors.email || !newErrors.name || !newErrors.surname || !newErrors.password || !newErrors.samePassword || userPassword !== userSamePassword)   return 
-            myMutation.mutate()
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData(prev => ({ ...prev, [name]: value }))
+        if (errors[name]) setErrors(prev => ({ ...prev, [name]: false }))
     }
 
+    const validate = () => {
+        const newErrors: Record<string, boolean> = {}
+        if (!formData.email) newErrors.email = true
+        if (!formData.name) newErrors.name = true
+        if (!formData.surname) newErrors.surname = true
+        if (!formData.password) newErrors.password = true
+        if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = true
+        
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (validate()) mutation.mutate()
+    }
+
+    if (mutation.isSuccess) {
+        return (
+            <div className="register_success">
+                <h3>Регистрация завершена!</h3>
+                <p>Используйте ваш email для входа в систему.</p>
+            </div>
+        )
+    }
 
     return (
-            <form onSubmit={handleRegister} className="register_form">
-                <h3 className="register_form-title">Регистрация</h3>
-                <div className="register_form-wrapper">
-                    <label className="register_form-label">
-                    <img className="register_form-icon" src={EmailIcon} height="24" width="24"></img>
-                    <input className="register_form-input" style={!errorValue.email ? {border: "1px solid red"} : undefined} placeholder="Электронная почта" value={userEmail} onChange={(e) => setUserEmail(e.target.value)}></input>
-                </label>
-                <label className="register_form-label">
-                    <img className="register_form-icon" src={EmailIcon} height="24" width="24"></img>
-                    <input className="register_form-input" style={!errorValue.name ? {border: "1px solid red"} : undefined} placeholder="Имя"  value={userName} onChange={(e) => setUserName(e.target.value)}></input>
-                </label>
-                <label className="register_form-label">
-                    <img className="register_form-icon" src={Usericon} height="24" width="24"></img>
-                    <input className="register_form-input"  style={!errorValue.surname ? {border: "1px solid red"} : undefined} placeholder="Фамилия"  value={userSurname} onChange={(e) => setUserSurname(e.target.value)}></input>
-                </label>
-                <label className="register_form-label">
-                    <img className="register_form-icon" src={PasswordIcon} height="24" width="24"></img>
-                    <input className="register_form-input"  style={!errorValue.password ? {border: "1px solid red"} : undefined} placeholder="Пароль"  value={userPassword} onChange={(e) => setUserPassword(e.target.value)}></input>
-                </label>
-                <label className="register_form-label">
-                    <img className="register_form-icon" src={PasswordIcon} height="24" width="24"></img>
-                    <input className="register_form-input" style={!errorValue.samePassword ? {border: "1px solid red"} : undefined} placeholder="Подтвердите пароль"  value={userSamePassword} onChange={(e) => setUserSamePassword(e.target.value)}></input>
-                </label>
-                </div>
-                <button type="submit" className="register_form-btn">Создать Аккаунт</button>  
-            </form>
+        <form onSubmit={handleSubmit} className="register_form">
+            <h3 className="register_form-title">Создать аккаунт</h3>
+            <div className="register_form-wrapper">
+                {[
+                    { name: "email", icon: EmailIcon, placeholder: "Email", type: "email" },
+                    { name: "name", icon: Usericon, placeholder: "Имя", type: "text" },
+                    { name: "surname", icon: Usericon, placeholder: "Фамилия", type: "text" },
+                    { name: "password", icon: PasswordIcon, placeholder: "Пароль", type: "password" },
+                    { name: "confirmPassword", icon: PasswordIcon, placeholder: "Повторите пароль", type: "password" }
+                ].map((field) => (
+                    <label key={field.name} className="register_form-label">
+                        <img className="register_form-icon" src={field.icon} alt="" width="24" height="24" />
+                        <input name={field.name}  type={field.type}  className="register_form-input"  style={errors[field.name] ? { border: "1px solid red" } : undefined}  placeholder={field.placeholder}   value={(formData as any)[field.name]}  onChange={handleInputChange}  />
+                    </label>
+                ))}
+            </div>
+            <button 
+                type="submit" 
+                className="register_form-btn" 
+                disabled={mutation.isPending}
+            >
+                {mutation.isPending ? "Загрузка..." : "Зарегистрироваться"}
+            </button>
+            {mutation.isError && <p className="error-text">Ошибка при регистрации. Попробуйте снова.</p>}
+        </form>
     )
 }
 

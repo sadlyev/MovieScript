@@ -9,7 +9,7 @@
 .random_movie-inner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .random_movie-info {
@@ -47,6 +47,7 @@
   font-size: 48px;
   line-height: 56px;
   margin: 0 0 16px;
+  text-align: left;
 }
 
 .random_movie-desc {
@@ -54,11 +55,14 @@
   font-size: 24px;
   line-height: 32px;
   margin: 0 0 60px;
+  text-align: left;
 }
 
 .random_movie_main {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .random_movie-photo {
@@ -82,4 +86,12 @@
 
 .random_movie-transfer--blue {
   background-color: #67a5eb;
+}
+
+.trailer_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
 }
