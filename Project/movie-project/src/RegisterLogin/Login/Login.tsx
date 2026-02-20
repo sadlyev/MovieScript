@@ -14,7 +14,9 @@ import { queryClient } from "../../queryClient"
 
     const myMutation = useMutation({
         mutationFn: () => loginUser(emailValue, passwordValue),
-        mutationKey: ["user"]
+        onSuccess: () => {
+            queryClient.invalidateQueries({queryKey: ["user"]})
+        }
     },  queryClient)
 
 

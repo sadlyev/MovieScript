@@ -13,7 +13,7 @@ const AppHeader = React.memo(() => {
 
     const {pathname} = useLocation()
 
-    const {data, isLoading} = useQuery({
+    const {data, isLoading, isError} = useQuery({
         queryFn: () => fetchUserData(),
         queryKey: ["user"],
         retry: false
@@ -39,7 +39,7 @@ queryClient
                     
                     <LazyRegisterLogin toggleClass={isOpen ? "" : "registerlogin_wrapper-no" } fnToggle={toggleModal}/>
                     {isLoading && <div>Загрузка...</div>}
-                    {isLoading && !data && (<span  onClick={toggleModal}>Войти</span>)}
+                    {isError && !data && (<span className="header_link" onClick={toggleModal}>Войти</span>)}
                     {data && (<Link to="/profile"><span className={`header_link ${pathname == "/profile" ? "header_link--active" : ""}`}>{data.name}</span></Link> )}
                     
                 

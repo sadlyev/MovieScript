@@ -1,0 +1,36 @@
+.favorite_list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 224px));
+  grid-template-rows: minmax(300px, 336px);
+  gap: 64px 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.favorite_list-item {
+  position: relative;
+
+  &:hover {
+    .favorite_list-delete {
+      opacity: 1;
+      transition: opacity ease-in 0.3s;
+    }
+  }
+}
+
+.favorite_list-img {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.favorite_list-delete {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity ease-in 0.3s;
+}

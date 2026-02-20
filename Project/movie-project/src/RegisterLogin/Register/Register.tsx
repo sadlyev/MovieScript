@@ -18,7 +18,9 @@ import { registerUser } from "../../APIRequests/FetchUser"
     
      const myMutation = useMutation({
             mutationFn: () => registerUser(userEmail, userPassword, userName, userSurname),
-            mutationKey: ["user"]
+            onSuccess: () => {
+                queryClient.invalidateQueries({queryKey: ["user"]})
+            }
         },queryClient)
 
     function handleRegister(e: React.FormEvent<HTMLFormElement>) {

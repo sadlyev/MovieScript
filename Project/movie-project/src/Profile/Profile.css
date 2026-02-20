@@ -1,3 +1,8 @@
+.profile_user {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile_wrapper {
   display: flex;
   flex-direction: column;
@@ -12,11 +17,18 @@
   line-height: 56px;
 }
 
+.profile_nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .profile_nav-wrapper {
   display: flex;
   gap: 64px;
   align-items: center;
   justify-content: center;
+  margin: 0 0 64px;
 }
 
 .profile_nav-btn {

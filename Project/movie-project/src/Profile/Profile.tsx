@@ -5,6 +5,7 @@ import "./Profile.css"
 import { useState } from "react"
 import LikeIcon from "../assets/like.svg"
 import UserIcon from "../assets/whiteUser.svg"
+import FavoriteMovie from "../FavoriteMovies/FavoriteMovie"
 
 const Profile = React.memo(() => {
     const [navPage, setNavPage] = useState("favorites")
@@ -14,7 +15,7 @@ const Profile = React.memo(() => {
     }  
 
     return (
-        <div>
+        <div className="profile_user">
             <AppHeader/>
             <div className="profile_wrapper">
                 <h2 className="profile_title">Мой аккаунт</h2>
@@ -23,6 +24,7 @@ const Profile = React.memo(() => {
                         <div  className={`profile_nav-btn ${navPage == "favorites"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={LikeIcon} width="24" height="24"></img><span>Избранные Фильмы</span></div>
                         <div className={`profile_nav-btn ${navPage == "settings"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={UserIcon} width="24" height="24"></img><span>Настройки Аккаунта</span></div>
                     </div>
+                    <FavoriteMovie/>
                 </div>
             </div>
             <Footer/>
