@@ -42,6 +42,7 @@ const FavoriteMovie = React.memo(() => {
       );
     case "success":
       return (
+                <div className="top_movie-container">
             <ul className="favorite_list">
           {[...myQuery.data].sort((a:MovieType, b: MovieType) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())).map((movie: MovieType, i: number) => (
             <li className="favorite_list-item" key={i}>
@@ -60,6 +61,7 @@ const FavoriteMovie = React.memo(() => {
             </li>
           ))}
         </ul> 
+        </div>
       );
   }
 });

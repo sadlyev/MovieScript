@@ -1,58 +1,78 @@
+.favorite_list-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 120px;
+  justify-content: center;
+}
+
+/* List styling */
 .favorite_list {
   display: grid;
   grid-template-columns: repeat(5, minmax(200px, 224px));
-  grid-template-rows: repeat(2, 336px);
   gap: 64px 40px;
   margin: 0 auto;
-  padding: 0;
   list-style: none;
+  padding: 0 20px;
+}
 
-  @media (max-width: 1360px) {
+/* List items */
+.favorite_list-item {
+  position: relative;
+}
+
+/* Responsive grid for medium screens */
+@media (max-width: 1360px) {
+  .favorite_list {
     grid-template-columns: repeat(4, minmax(200px, 224px));
     gap: 40px 30px;
   }
+}
 
-  @media (max-width: 1160px) {
+@media (max-width: 1160px) {
+  .favorite_list {
     grid-template-columns: repeat(3, minmax(200px, 224px));
   }
+}
 
-  @media (max-width: 950px) {
+@media (max-width: 950px) {
+  .favorite_list {
     grid-template-columns: repeat(2, minmax(200px, 224px));
-    margin: 0 0 80px;
+    margin-bottom: 80px;
   }
+}
 
-  @media (max-width: 600px) {
+/* FLEX horizontal scroll for tablets and below */
+@media (max-width: 600px) {
+  .favorite_list {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     gap: 20px;
-    padding: 20px 20px;
-    scrollbar-width: none;
+    padding: 20px;
+    margin: 0; /* remove auto centering */
+    scrollbar-width: none; /* Firefox */
   }
 
   .favorite_list-item {
-    position: relative;
     flex: 0 0 auto;
-
-    &:hover {
-      .favorite_list-delete {
-        opacity: 1;
-        transition: opacity ease-in 0.3s;
-        user-select: all;
-        pointer-events: all;
-      }
-    }
-
-    @media (max-width: 600px) {
-      max-width: 224px;
-    }
+    max-width: 224px;
   }
 }
 
+/* Hide scrollbar for Webkit browsers */
+.favorite_list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Movie image styling */
 .favorite_list-img {
   overflow: hidden;
   border-radius: 16px;
+  width: 100%;
+  height: 100%;
 }
 
+/* Delete button */
 .favorite_list-delete {
   position: absolute;
   top: -20px;
@@ -65,8 +85,18 @@
   transition: opacity ease-in 0.3s;
   user-select: none;
   pointer-events: none;
+}
 
-  @media (max-width: 1024px) {
+.favorite_list-item:hover .favorite_list-delete {
+  opacity: 1;
+  transition: opacity ease-in 0.3s;
+  user-select: all;
+  pointer-events: all;
+}
+
+/* Show delete button for smaller screens */
+@media (max-width: 1024px) {
+  .favorite_list-delete {
     opacity: 1;
     user-select: all;
     pointer-events: all;
