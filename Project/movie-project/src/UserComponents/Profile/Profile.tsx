@@ -67,12 +67,8 @@ const Profile = React.memo(() => {
                         <div  className={`profile_nav-btn ${navPage == "favorites"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={LikeIcon} width="24" height="24"></img><span>Избранные Фильмы</span></div>
                         <div className={`profile_nav-btn ${navPage == "settings"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={UserIcon} width="24" height="24"></img><span>Настройки Аккаунта</span></div>
                     </div>
-                   <Suspense fallback={<div>Загрузка вкладки...</div>}>
-              {navPage === "favorites" ? (
-                <LazyFavoriteMovie />
-              ) : (
-                <LazyUserData userInfo={myQuery.data} outFn={handleUserLogout} />
-              )}
+            <Suspense fallback={<div>Загрузка вкладки...</div>}>
+              {navPage === "favorites" ? (  <LazyFavoriteMovie />  ) : (  <LazyUserData userInfo={myQuery.data} outFn={handleUserLogout} />  )}
             </Suspense>
                 </div>
             </div>

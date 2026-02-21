@@ -80,8 +80,9 @@ export const RandomMovie = ({ movie, refetch }: { movie: any, refetch: () => voi
             <img src={StarIcon} alt="star" width="16" height="16" />
             <span className="random_movie-info-text">{movie.tmdbRating}</span>
           </div>
-          <span className="random_movie-info-text">{movie.genres[0]}</span>
+          
           <span className="random_movie-info-text">{movie.releaseYear}</span>
+          <span className="random_movie-info-text">{movie.genres[0]}</span>
           <span className="random_movie-info-text">{movie.runtime} мин</span>
         </div>
 
@@ -111,10 +112,9 @@ export const RandomMovie = ({ movie, refetch }: { movie: any, refetch: () => voi
               </button>
             )}
             
+           </div> 
           </div>
-            
-          </div>
-           </div>
+        </div>
       </div>
 
       <div className="random_movie-photo-container">

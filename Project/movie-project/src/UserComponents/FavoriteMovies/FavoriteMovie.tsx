@@ -42,8 +42,8 @@ const FavoriteMovie = React.memo(() => {
       );
     case "success":
       return (
-        <ul className="favorite_list">
-          {myQuery.data.sort((a:MovieType, b: MovieType) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())).map((movie: MovieType, i: number) => (
+            <ul className="favorite_list">
+          {[...myQuery.data].sort((a:MovieType, b: MovieType) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())).map((movie: MovieType, i: number) => (
             <li className="favorite_list-item" key={i}>
               <button onClick={() => handleDelete(movie.id)} className="favorite_list-delete">
                 <img src={CloseIcon} width="24" height="24"></img>
@@ -59,7 +59,7 @@ const FavoriteMovie = React.memo(() => {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> 
       );
   }
 });

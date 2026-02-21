@@ -60,7 +60,7 @@ const MovieGenre = React.memo(() => {
       );
     case "success":
       return (
-        <div>
+        <div className="movie_genre-container">
           <AppHeader></AppHeader>
           <h2 className="movie_genre-title">Жанры Фильмов</h2>
           <ul className="movie_genre-list">

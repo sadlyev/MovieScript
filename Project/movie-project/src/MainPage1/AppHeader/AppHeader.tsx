@@ -35,7 +35,7 @@ queryClient
                         <div className="header_nav-wrapper">
                             <div className="header_nav-innerWrapper">
                                  <Link className={`header_link  ${pathname == "/" ? "header_link--active" : ""}`} to="/">Главная</Link>
-                                 <Link className={`header_link header_link--icon `} to="/movie/genre"><img src={GenresIcon}  className={`header_link header_link--icon `} width="24" height="24"></img></Link>
+                                 <Link className={`header_link header_link--icon  ${pathname == "/movie/genre" ? "header_link--active" : ""}`} to="/movie/genre"><img src={GenresIcon}  className={`header_link header_link--icon `} width="24" height="24"></img></Link>
                                  <Link className={`header_link  ${pathname == "/movie/genre" ? "header_link--active" : ""}`} to="/movie/genre">Жанры</Link>
                             </div>
                             <LazySearchedValue className={"header_label"}/>    

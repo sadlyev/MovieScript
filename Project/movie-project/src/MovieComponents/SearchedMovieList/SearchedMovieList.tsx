@@ -46,7 +46,7 @@ const SearchedMovie = ({className} : {className: string}) => {
     <div className="search_container" >
         {!isToggled ? <img onClick={handleSearchToggle} src={SearchedIcon} className="header_label-searchIcon  header_link--icon" width="24" height="24"></img> : null}
         <label className={`${className} ${isToggled ? "header-label--active" : ""}`} >
-          {searchValue ? <span className="header_label-clear" onClick={handleClearValue}>✖</span> : undefined}
+          <span className="header_label-clear" onClick={handleClearValue}>✖</span>
           <img src={SearchIcon}  className="header_label-logo"   width={20}    height={20} alt="search icon" />
           <input className="header_label-input" placeholder="Поиск" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
           {debouncedValue && (
@@ -56,7 +56,7 @@ const SearchedMovie = ({className} : {className: string}) => {
             {data && data.length === 0 && ( <div style={{ color: "#bcbdbd" }}>Ничего не найдено</div> )}
             {data &&
                 data.map((movie: MovieType, i: number) => (
-                  <Link onClick={() => setIsToggled(false)} to={`/movie/${movie.id}`} className="search_movie" key={i}>
+                  <Link  to={`/movie/${movie.id}`} className="search_movie" key={i}>
                     <img src={movie.posterUrl} width={40} height={52} alt={movie.title} loading="lazy" />
                     <div className="search_movie-data">
                       <div className="search_movie-info">

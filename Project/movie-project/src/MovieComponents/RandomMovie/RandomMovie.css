@@ -30,7 +30,7 @@
 .random_movie-btnControl {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
   @media (max-width: 1024px) {
     flex-wrap: wrap;
@@ -145,8 +145,8 @@
 }
 
 .random_movie-title {
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin: 0 0 16px;
   color: white;
   text-align: left;
 }
@@ -155,7 +155,7 @@
   font-size: 18px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px;
+  margin: 0 0 40px;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -170,5 +170,5 @@
 
 .random_movie-btnControl-inner {
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }

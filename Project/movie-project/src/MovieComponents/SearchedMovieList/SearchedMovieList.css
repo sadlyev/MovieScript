@@ -32,14 +32,24 @@
     .header_label-logo {
       left: 40px;
     }
+
+    .search {
+      width: auto;
+    }
+
+    .header_label-clear {
+      display: flex;
+    }
   }
 }
 
 .header_label-clear {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #bcbdbd;
+  display: none;
 }
 
 .search {
@@ -49,13 +59,6 @@
   top: 60px;
   right: 0;
   border-radius: 6px;
-  z-index: 999;
-  width: 100%;
-
-  @media (max-width: 1024px) {
-    right: 16px;
-    left: 16px;
-  }
 }
 
 .search_movie {

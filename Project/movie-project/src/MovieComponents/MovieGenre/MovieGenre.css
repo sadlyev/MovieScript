@@ -1,23 +1,63 @@
+.movie_genre-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .movie_genre-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 290px));
   gap: 64px 40px;
   margin: 0 0 160px;
   padding: 0;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1360px) {
+    gap: 40px 30px;
+  }
+
+  @media (max-width: 1160px) {
+    grid-template-columns: repeat(3, minmax(200px, 290px));
+  }
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(2, minmax(200px, 290px));
+    margin: 0 0 80px;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(200px, 290px);
+    gap: 24px;
+    margin: 0 0 60px;
+  }
 }
 
 .movie_genre-title {
   font-size: 48px;
   line-height: 56px;
   color: white;
-  text-align: left;
-  margin: 0 0 64px;
+  margin: 0 auto 64px 0;
+
+  @media (max-width: 1160px) {
+    margin: 0 auto 44px 0;
+    font-size: 38px;
+    line-height: 46px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0 auto 40px 0;
+  }
 }
+
 .movie_genre-item {
   background-color: #000000;
   border-radius: 16px;
   overflow: hidden;
   height: 304px;
+
+  @media (max-width: 600px) {
+    border-radius: 24px;
+  }
 }
 
 .movie_genre-name {

@@ -12,12 +12,12 @@ function App() {
   return (
     <BrowserRouter>
     <Suspense>
-       <Routes>
-      <Route path="/" element={<MainPage/>}></Route>
-      <Route path="/movie/:movieId" element={<LazyMovieProfile/>}></Route>
-      <Route path="/movie/genre" element={<LazyMovieGenre/>}></Route>
-      <Route path="/movie/genre/:searchGenre" element={<LazyMovieSplitGenre/>}></Route>
-      <Route path="/profile" element={<LazyProfile/>}></Route>
+      <Routes>
+        <Route path="/" element={<MainPage/>}></Route>
+        <Route path="/movie/:movieId" element={<LazyMovieProfile/>}></Route>
+        <Route path="/movie/genre" element={<LazyMovieGenre/>}></Route>
+        <Route path="/movie/genre/:searchGenre" element={<LazyMovieSplitGenre/>}></Route>
+        <Route path="/profile" element={<LazyProfile/>}></Route>
     </Routes>
 
     </Suspense>

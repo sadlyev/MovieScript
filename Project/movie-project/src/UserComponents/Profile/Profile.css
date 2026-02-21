@@ -1,21 +1,18 @@
 .profile_user {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  flex-grow: 1;
 }
 
 .profile_wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   margin: 30px 0 0 0;
-  height: 100%;
 }
 
 .profile_title {
   color: #fff;
-  margin: 0 0 73px;
+  margin: 0 auto 73px 0;
   font-size: 48px;
   line-height: 56px;
 }
@@ -23,8 +20,8 @@
 .profile_nav {
   display: flex;
   flex-direction: column;
-
-  margin: 0 0 120px;
+  margin: 0 0 80px;
+  width: auto;
 }
 
 .profile_nav-wrapper {
