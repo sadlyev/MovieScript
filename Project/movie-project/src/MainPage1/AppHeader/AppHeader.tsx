@@ -31,10 +31,11 @@ queryClient
                     <Link  className="header_link" to="/"><img src={AppLogo} className="header_logo" width="143" height="32"></img></Link>
                     <div className="header_inner">
                         <div className="header_nav-wrapper">
-                            <Link className={`header_link ${pathname == "/" ? "header_link--active" : ""}`} to="/">Главная</Link>
-                            <Link className={`header_link ${pathname == "/movie/genre" ? "header_link--active" : ""}`} to="/movie/genre">Жанры</Link>
-                            <LazySearchedValue/>
-                           
+                            <div className="header_nav-innerWrapper">
+                                 <Link className={`header_link ${pathname == "/" ? "header_link--active" : ""}`} to="/">Главная</Link>
+                                 <Link className={`header_link ${pathname == "/movie/genre" ? "header_link--active" : ""}`} to="/movie/genre">Жанры</Link>
+                            </div>
+                            <LazySearchedValue/>    
                         </div>
                     
                     <LazyRegisterLogin toggleClass={isOpen ? "" : "registerlogin_wrapper-no" } fnToggle={toggleModal}/>

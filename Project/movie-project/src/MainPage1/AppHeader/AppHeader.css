@@ -4,6 +4,11 @@
   gap: 80px;
   margin: 24px 0 56px 0;
   width: 100%;
+
+  @media (max-width: 1350px) {
+    gap: 40px;
+    margin: 12px 0 40px;
+  }
 }
 
 .header_inner {
@@ -12,23 +17,21 @@
   width: 100%;
   align-items: center;
   gap: 80px;
+
+  @media (max-width: 1350px) {
+    gap: 40px;
+  }
 }
 
 .header_nav-wrapper {
   display: flex;
   gap: 40px;
   width: 100%;
-  flex-wrap: nowrap;
 }
 
-.header_label-input::placeholder {
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.header_label {
-  position: relative;
-  width: 100%;
+.header_nav-innerWrapper {
+  display: flex;
+  gap: 40px;
 }
 
 .header_label-logo {

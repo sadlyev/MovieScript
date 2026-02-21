@@ -109,12 +109,13 @@ export const RandomMovie = ({movie, refetch}: {movie: any, refetch: () => void})
                 <img src={liked ? LikedIcon : LikeIcon}  width="20" height="20"></img>
               </button>
                {!location.pathname.includes("/movie") ?  <button className="random_movie-control" onClick={() => refetch()}>
-                <img src={RefetchIcon} width="20" height="20"></img>
+                <img src={RefetchIcon}className="random_movie-control-img" width="20" height="20"></img>
               </button> : undefined }
               
         </div>
       </div>
-      <div><img  className="random_movie-photo" src={movie.backdropUrl ? movie.backdropUrl : BlockPhoto} width="680" height="552" alt="backdrop image of a movie"></img></div>
+      <div><img  className="random_movie-photo" src={movie.backdropUrl ? movie.backdropUrl : BlockPhoto} style={{width: "100%",
+  height: "auto"}} alt="backdrop image of a movie"></img></div>
     <LazyRegisterLogin toggleClass={isOpen ? "" : "registerlogin_wrapper-no" } fnToggle={toggleModal}/>
     </div>
   );

@@ -1,6 +1,6 @@
 .main_page {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: column; /* Changed from height: 100% to ensure it covers the screen */
   flex-grow: 1;
+  overflow-x: hidden;
 }
