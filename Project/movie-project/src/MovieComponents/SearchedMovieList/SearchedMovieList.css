@@ -1,6 +1,45 @@
+.search_container {
+  width: 100%;
+}
+
 .header_label {
   position: relative;
   width: 100%;
+
+  @media (max-width: 850px) {
+    display: none;
+  }
+}
+
+.header-label--active {
+  display: flex;
+
+  @media (max-width: 1024px) {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    z-index: 999;
+    display: flex;
+
+    .header_label-clear {
+      right: 40px;
+    }
+
+    .header_label-logo {
+      left: 40px;
+    }
+  }
+}
+
+.header_label-clear {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: #bcbdbd;
 }
 
 .search {
@@ -12,6 +51,11 @@
   border-radius: 6px;
   z-index: 999;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    right: 16px;
+    left: 16px;
+  }
 }
 
 .search_movie {
@@ -69,4 +113,12 @@
 .header_label-input::placeholder {
   font-size: 18px;
   line-height: 24px;
+}
+
+.header_label-searchIcon {
+  display: none;
+
+  @media (max-width: 850px) {
+    display: flex;
+  }
 }

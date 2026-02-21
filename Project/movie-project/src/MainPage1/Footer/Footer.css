@@ -2,6 +2,11 @@
   display: flex;
   justify-content: flex-end;
   margin: 28px 0 80px;
+
+  @media (max-width: 800px) {
+    justify-content: flex-start;
+    margin: 24px 0;
+  }
 }
 
 .footer_list {
