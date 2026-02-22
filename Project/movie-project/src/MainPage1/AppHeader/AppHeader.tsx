@@ -44,7 +44,7 @@ queryClient
                     {isLoading && <div>Загрузка...</div>}
                     {isError && !data && (<span className="header_link" onClick={toggleModal}>Войти</span>)}
                     {data && (<Link to="/profile" className={`header_link ${pathname == "/profile" ? "header_link--active" : ""}`}>{data.name}</Link> )}
-                    {data ? <Link  className={`header_link header_link--icon ${pathname == "/profile" ? "header_link--active" : ""}`} to="/profile"><img  src={UserIcon} width="24" height="24"></img></Link> : <img  onClick={toggleModal} src={UserIcon} width="24" height="24"></img>}
+                    {data ? <Link  className={`header_link header_link--icon ${pathname == "/profile" ? "header_link--active" : ""}`} to="/profile"><img   className={`header_link header_link--icon `} src={UserIcon} width="24" height="24"></img></Link> : <img  className={`header_link header_link--icon `}  onClick={toggleModal} src={UserIcon} width="24" height="24"></img>}
 
                     </div>
                      <LazyRegisterLogin toggleClass={isOpen ? "" : "registerlogin_wrapper-no" } fnToggle={toggleModal}/>
