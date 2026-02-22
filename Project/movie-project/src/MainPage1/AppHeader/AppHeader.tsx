@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
 import AppLogo from "../../assets/logoWhite.svg"
-import SearchIcon from "../../assets/search.svg"
 import GenresIcon from "../../assets/genresIcon.svg"
 import "./AppHeader.css"
 import UserIcon from "../../assets/whiteUser.svg"
