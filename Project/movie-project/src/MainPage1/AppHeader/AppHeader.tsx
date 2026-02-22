@@ -16,7 +16,7 @@ const AppHeader = React.memo(() => {
 
     const {pathname} = useLocation()
 
-    const {data, isLoading, isError} = useQuery({
+    const {data, isError} = useQuery({
         queryFn: () => fetchUserData(),
         queryKey: ["user"],
         retry: false

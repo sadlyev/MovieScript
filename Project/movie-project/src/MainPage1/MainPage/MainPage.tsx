@@ -18,8 +18,6 @@ export const MainPage = () => {
   );
 
   switch (myQuery.status) {
-    case "pending":
-      return <div>Loading...</div>;
     case "error":
       return (
         <div>

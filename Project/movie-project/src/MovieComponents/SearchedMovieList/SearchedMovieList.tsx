@@ -51,7 +51,6 @@ const SearchedMovie = ({className} : {className: string}) => {
           <input className="header_label-input" placeholder="Поиск" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
           {debouncedValue && (
           <div className="search">
-            {isLoading && <div >Загрузка...</div>}
             {isError && (<div> Ошибка поиска <button onClick={() => refetch()}>Повторить</button> </div> )}
             {data && data.length === 0 && ( <div style={{ color: "#bcbdbd" }}>Ничего не найдено</div> )}
             {data &&
