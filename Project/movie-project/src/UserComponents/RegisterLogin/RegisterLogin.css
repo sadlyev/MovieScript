@@ -12,6 +12,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+
+  @media (max-width: 600px) {
+    padding: 32px 20px;
+    max-width: 335px;
+  }
 }
 
 .registerlogin_wrapper-no {
@@ -20,6 +25,10 @@
 
 .registerlogin_icon {
   margin: 0 0 40px;
+
+  @media (max-width: 600px) {
+    margin: 0 0 32px;
+  }
 }
 
 .registerlogin_btn {
@@ -40,4 +49,9 @@
   justify-content: center;
   align-items: center;
   padding: 0;
+
+  @media (max-width: 600px) {
+    top: 10px;
+    right: 10px;
+  }
 }
