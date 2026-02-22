@@ -12,7 +12,7 @@ export const Footer = React.memo(() => {
             <li><a href="https://vk.ru/maratsadiyev"><img src={VKLogo} alt="vk logo"></img></a></li>
             <li><a href=""><img src={YTlogo} alt="vk logo" ></img></a></li>
             <li><a href=""><img src={OdnoLogo} alt="vk logo" ></img></a></li>
-            <li><a href=""><img src={TgLogo} alt="vk logo" ></img></a></li>  
+            <li><a href="https://t.me/richycala33"><img src={TgLogo} alt="vk logo" ></img></a></li>  
         </ul>
         </footer>
         
