@@ -15,7 +15,8 @@ import { queryClient } from "../../queryClient"
     const myMutation = useMutation({
         mutationFn: () => loginUser(emailValue, passwordValue),
         onSuccess: () => {
-            queryClient.invalidateQueries({queryKey: ["user"]})
+            queryClient.refetchQueries({ queryKey: ["user"] })
+                    fnToggle()
         }
     },  queryClient)
 
@@ -30,7 +31,7 @@ import { queryClient } from "../../queryClient"
         setErrorValue(newError)
         if (!newError.email || !newError.password)   return 
         myMutation.mutate()
-        fnToggle()
+
     }
     return (
         <form  onSubmit={handleSubmit} className="login_form">
