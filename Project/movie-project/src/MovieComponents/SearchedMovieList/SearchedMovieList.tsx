@@ -18,7 +18,7 @@ const SearchedMovie = ({className} : {className: string}) => {
 
   const debouncedValue = useDebounce(searchValue, 400);
 
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isError, refetch } = useQuery({
 
     queryKey: ["searchMovie", debouncedValue],
     queryFn: () => fetchMovieTitle(debouncedValue.toLowerCase()),
@@ -59,6 +59,7 @@ const SearchedMovie = ({className} : {className: string}) => {
                     <img className="search_movie-img" src={movie.posterUrl} width={40} height={52} alt={movie.title} loading="lazy" />
                     <div className="search_movie-data">
                       <div className="search_movie-info">
+                        
                         
                         <div  className="search_movie-info-wrapper" style={{  backgroundColor:  movie.tmdbRating >= 8  ? "#A59400" : movie.tmdbRating >= 7 ? "green" : movie.tmdbRating >= 6 ? "#777777": "red"}} >
                           <img src={StarIcon} width={16} height={16} alt="star" />
