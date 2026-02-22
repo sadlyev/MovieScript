@@ -3,14 +3,42 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 0 0 160px;
+
+  @media (max-width: 600px) {
+    margin: 0 0 40px;
+  }
 }
 
 .genre_movie-list {
   display: grid;
   grid-template-columns: repeat(5, minmax(200px, 224px));
   gap: 60px 40px;
-  margin: 0 0 64px;
+  margin: 0 auto 64px;
   padding: 0;
+
+  @media (max-width: 1400px) {
+    gap: 40px 30px;
+  }
+
+  @media (max-width: 1320px) {
+    gap: 50px 40px;
+    grid-template-columns: repeat(4, minmax(200px, 224px));
+  }
+
+  @media (max-width: 1080px) {
+    gap: 50px 40px;
+    grid-template-columns: repeat(3, minmax(200px, 224px));
+  }
+
+  @media (max-width: 800px) {
+    gap: 50px 40px;
+    grid-template-columns: repeat(2, minmax(200px, 224px));
+  }
+
+  @media (max-width: 600px) {
+    gap: 24px;
+    grid-template-columns: 224px;
+  }
 
   img {
     border-radius: 16px;
@@ -24,6 +52,16 @@
   font-size: 48px;
   line-height: 56px;
   margin: 0;
+
+  @media (max-width: 800px) {
+    font-size: 38px;
+    line-height: 46px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .genre_movie-title-icon {
@@ -35,6 +73,10 @@
   justify-content: center;
   align-items: center;
   margin: 30px 0 64px;
+
+  @media (max-width: 600px) {
+    margin: 16px 0 40px;
+  }
 }
 
 .genre_movie-btn {
