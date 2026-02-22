@@ -5,7 +5,6 @@
   justify-content: center;
 }
 
-/* List styling */
 .favorite_list {
   display: grid;
   grid-template-columns: repeat(5, minmax(200px, 224px));
@@ -15,12 +14,10 @@
   padding: 0 20px;
 }
 
-/* List items */
 .favorite_list-item {
   position: relative;
 }
 
-/* Responsive grid for medium screens */
 @media (max-width: 1360px) {
   .favorite_list {
     grid-template-columns: repeat(4, minmax(200px, 224px));
@@ -41,7 +38,6 @@
   }
 }
 
-/* FLEX horizontal scroll for tablets and below */
 @media (max-width: 600px) {
   .favorite_list {
     display: flex;
@@ -49,8 +45,8 @@
     overflow-x: auto;
     gap: 20px;
     padding: 20px;
-    margin: 0; /* remove auto centering */
-    scrollbar-width: none; /* Firefox */
+    margin: 0;
+    scrollbar-width: none;
   }
 
   .favorite_list-item {
@@ -59,12 +55,10 @@
   }
 }
 
-/* Hide scrollbar for Webkit browsers */
 .favorite_list::-webkit-scrollbar {
   display: none;
 }
 
-/* Movie image styling */
 .favorite_list-img {
   overflow: hidden;
   border-radius: 16px;
@@ -72,7 +66,6 @@
   height: 100%;
 }
 
-/* Delete button */
 .favorite_list-delete {
   position: absolute;
   top: -20px;
@@ -94,7 +87,6 @@
   pointer-events: all;
 }
 
-/* Show delete button for smaller screens */
 @media (max-width: 1024px) {
   .favorite_list-delete {
     opacity: 1;

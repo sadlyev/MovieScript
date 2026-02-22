@@ -57,13 +57,15 @@ const SearchedMovie = ({className} : {className: string}) => {
             {data &&
                 data.map((movie: MovieType, i: number) => (
                   <Link  to={`/movie/${movie.id}`} className="search_movie" key={i}>
-                    <img src={movie.posterUrl} width={40} height={52} alt={movie.title} loading="lazy" />
+                    <img className="search_movie-img" src={movie.posterUrl} width={40} height={52} alt={movie.title} loading="lazy" />
                     <div className="search_movie-data">
                       <div className="search_movie-info">
+                        
                         <div  className="search_movie-info-wrapper" style={{  backgroundColor:  movie.tmdbRating >= 8  ? "#A59400" : movie.tmdbRating >= 7 ? "green" : movie.tmdbRating >= 6 ? "#777777": "red"}} >
                           <img src={StarIcon} width={16} height={16} alt="star" />
                           <span className="search_movie-info-sts">{Math.round(movie.tmdbRating * 10) / 10}</span>
                         </div>
+                        <span className="search_movie-info-sts">{movie.releaseYear}</span>
                         <span className="search_movie-info-sts">{movie.genres?.join(", ")} </span>
                         <span className="search_movie-info-sts">{movie.runtime} мин</span>
                       </div>

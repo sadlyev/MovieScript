@@ -3,7 +3,7 @@ id: number;
 title: string;
 originalTitle:	string
 language:	string
-relaseYear:number
+releaseYear:number
 releaseDate:	string
 genres:	string[]
 plot:	string

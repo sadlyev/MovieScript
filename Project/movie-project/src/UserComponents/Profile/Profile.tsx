@@ -62,13 +62,13 @@ const Profile = React.memo(() => {
             <AppHeader/>
             <div className="profile_wrapper">
                 <h2 className="profile_title">Мой аккаунт</h2>
-                    <div className="profile_nav-wrapper">
-                        <div  className={`profile_nav-btn ${navPage == "favorites"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={LikeIcon} width="24" height="24"></img><span>Избранные Фильмы</span></div>
-                        <div className={`profile_nav-btn ${navPage == "settings"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={UserIcon} width="24" height="24"></img><span>Настройки Аккаунта</span></div>
-                    </div>
+                <div className="profile_nav-wrapper">
+                    <div  className={`profile_nav-btn ${navPage == "favorites"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={LikeIcon} width="24" height="24"></img><span>Избранные</span><span className="profile_nav-btn-text">Фильмы</span></div>
+                    <div className={`profile_nav-btn ${navPage == "settings"? "profile_nav-btn--active" : ""}`} onClick={() => handlePage()}><img src={UserIcon} width="24" height="24"></img><span>Настройки</span><span className="profile_nav-btn-text">Аккаунта</span></div>
+                </div>
             </div>
             
-            <Suspense fallback={<div>Загрузка вкладки...</div>}>
+           <Suspense fallback={<div>Загрузка вкладки...</div>}>
               {navPage === "favorites" ? (  <div className="favorite_scroll-wrapper">
   <LazyFavoriteMovie />
 </div>  ) : (  <LazyUserData userInfo={myQuery.data} outFn={handleUserLogout} />  )}

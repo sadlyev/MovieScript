@@ -35,14 +35,32 @@ const MovieProfile = () => {
           <RandomMovie movie={myQuery.data} refetch={myQuery.refetch} />
           <div className="movie_profile-info">
             <h2 className="movie_profile-title">О Фильме</h2>
-            <ul className="movie_profile-list">
-              <li><span>Язык Оригинала</span>  ...................   <span>{myQuery.data.language ? myQuery.data.language : "Неизвестно"}</span></li>
-              <li><span>Бюджет</span>  .....................................   <span>{myQuery.data.budget ? myQuery.data.budget : "Неизвестно"}</span></li>
-              <li><span>Выручка</span>  ....................................   <span>{myQuery.data.revenue ? myQuery.data.revenue : "Неизвестно"}</span></li>
-              <li><span>Режиссёр</span>  ..................................   <span>{myQuery.data.director ? myQuery.data.director : "Неизвестно"}</span></li>
-              <li><span>Продакшен</span>  ..............................   <span>{myQuery.data.production ? myQuery.data.production : "Неизвестно"}</span></li>
-               <li><span>Награды</span>  .....................................   <span>{myQuery.data.awardsSummary ? myQuery.data.awardsSummary : "Неизвестно"}</span></li>
-            </ul>
+           <ul className="movie_profile-list">
+  <li>
+    <span className="label">Язык Оригинала</span> 
+    <span className="value">{myQuery.data.language || "Неизвестно"}</span>
+  </li>
+  <li>
+    <span className="label">Бюджет</span> 
+    <span className="value">{myQuery.data.budget || "Неизвестно"}</span>
+  </li>
+  <li>
+    <span className="label">Выручка</span> 
+    <span className="value">{myQuery.data.revenue || "Неизвестно"}</span>
+  </li>
+  <li>
+    <span className="label">Режиссёр</span> 
+    <span className="value">{myQuery.data.director || "Неизвестно"}</span>
+  </li>
+  <li>
+    <span className="label">Продакшен</span> 
+    <span className="value">{myQuery.data.production || "Неизвестно"}</span>
+  </li>
+  <li>
+    <span className="label">Награды</span> 
+    <span className="value">{myQuery.data.awardsSummary || "Неизвестно"}</span>
+  </li>
+</ul>
           </div>
           <Footer/>
         </div>

@@ -1,11 +1,6 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
 import React from "react";
-import { fetchUserData } from "../../APIRequests/FetchUser";
-import { queryClient } from "../../queryClient";
 import EmailIcon from "../../assets/whiteEmail.svg"
 import "./UserData.css"
-import { fetchUserLogout } from "../../APIRequests/FetchUser";
-import { useNavigate } from "react-router-dom";
 
 const UserData = React.memo(({userInfo, outFn} : {userInfo: any, outFn: () => void}) => {
 
