@@ -7,6 +7,7 @@ import CloseIcon from "../../assets/close.svg";
 import { fetchRemoveFavorite } from "../../APIRequests/FetchMovie";
 import React from "react";
 import { fetchFavoriteMovies } from "../../APIRequests/FetchMovie";
+import { Loader } from "../../Loader/Loader";
 
 const FavoriteMovie = React.memo(() => {
 
@@ -32,7 +33,7 @@ const FavoriteMovie = React.memo(() => {
 
   switch (myQuery.status) {
     case "pending":
-      return <span>Loading...</span>;
+      return (<Loader/>);
     case "error":
       return (
         <div>

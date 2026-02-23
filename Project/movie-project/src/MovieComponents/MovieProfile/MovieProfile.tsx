@@ -6,6 +6,7 @@ import { RandomMovie } from "../RandomMovie/RandomMovie";
 import AppHeader from "../../MainPage1/AppHeader/AppHeader";
 import "./MovieProfile.css"
 import { Footer } from "../../MainPage1/Footer/Footer";
+import { Loader } from "../../Loader/Loader";
 
 const MovieProfile = () => {
   const { movieId } = useParams();
@@ -20,7 +21,7 @@ const MovieProfile = () => {
 
   switch (myQuery.status) {
     case "pending":
-      return <div>Загрузка...</div>;
+      return (<Loader/>);
     case "error":
       return (
         <div>

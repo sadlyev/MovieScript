@@ -4,8 +4,6 @@ import "./UserData.css"
 
 const UserData = React.memo(({userInfo, outFn} : {userInfo: any, outFn: () => void}) => {
 
-    
-  
       return (
         <div className="user_data">
           <div className="user_data-inner">

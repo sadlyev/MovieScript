@@ -6,6 +6,7 @@ import type { MovieType } from "../../Types"
 import "./TopMovies.css"
 import React from "react"
 import NoPhoto from "../../assets/img/im.jpg"
+import { Loader } from "../../Loader/Loader"
 
  const TopMovies = React.memo(() => {
 
@@ -18,7 +19,7 @@ queryClient)
 
     switch(myQuery.status) {
         case "pending" :
-            return (<span>Loading...</span>)
+            return (<Loader/>)
         case "error" :
             return (<div><span>Что то пошло не так</span><button onClick={() => myQuery.refetch()}>Повторить</button></div>)
         case "success": 

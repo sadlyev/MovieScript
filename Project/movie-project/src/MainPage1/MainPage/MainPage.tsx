@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Footer } from "../Footer/Footer";
 import "./Mainpage.css"
 import { lazy } from "react";
+import { Loader } from "../../Loader/Loader";
 const LazyTopMovies = lazy(() => import("../../MovieComponents/TopMovies/TopMovies"))
 
 export const MainPage = () => {
@@ -18,6 +19,8 @@ export const MainPage = () => {
   );
 
   switch (myQuery.status) {
+    case "pending": 
+    return (<Loader/>)
     case "error":
       return (
         <div>

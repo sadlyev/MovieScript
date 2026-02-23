@@ -12,6 +12,7 @@ import { useMutation , useQuery} from "@tanstack/react-query"
 import { fetchUserLogout } from "../../APIRequests/FetchUser"
 import { queryClient } from "../../queryClient"
 import { fetchUserData } from "../../APIRequests/FetchUser"
+import { Loader } from "../../Loader/Loader"
 
 const Profile = React.memo(() => {
     const [navPage, setNavPage] = useState("favorites")
@@ -47,7 +48,7 @@ const Profile = React.memo(() => {
 
     switch (myQuery.status) {
     case "pending":
-      return <div>Загрузка...</div>;
+      return (<Loader/>);
     case "error":
       return (
         <div style={{display: "flex",  flexDirection: "column", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", gap: "40px"}}>
@@ -68,7 +69,7 @@ const Profile = React.memo(() => {
                 </div>
             </div>
             
-           <Suspense fallback={<div>Загрузка вкладки...</div>}>
+           <Suspense fallback={<Loader/>}>
               {navPage === "favorites" ? (  <div className="favorite_scroll-wrapper">
   <LazyFavoriteMovie />
 </div>  ) : (  <LazyUserData userInfo={myQuery.data} outFn={handleUserLogout} />  )}

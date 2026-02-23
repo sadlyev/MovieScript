@@ -29,7 +29,7 @@ queryClient
             return (
                 
                 <header className="header">
-                    <Link   to="/"><img src={AppLogo} className="header_logo" width="143" height="32"></img></Link>
+                    <Link   to="/"><img src={AppLogo} className="header_logo" width="143" height="32" alt="app logo"></img></Link>
                     <div className="header_inner">
                         <div className="header_nav-wrapper">
                             <div className="header_nav-innerWrapper">

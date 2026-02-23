@@ -2,18 +2,15 @@ import  { useState, lazy } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import YouTube, { type YouTubeProps } from 'react-youtube';
-
 import { queryClient } from "../../queryClient";
 import { fetchFavorite, fetchRemoveFavorite } from "../../APIRequests/FetchMovie";
 import { fetchUserData } from "../../APIRequests/FetchUser";
-
 import LikeIcon from "../../assets/like.svg";
 import LikedIcon from "../../assets/LikedIcon.svg";
 import StarIcon from "../../assets/star.svg";
 import BlockPhoto from "../../assets/img/im.jpg";
 import RefetchIcon from "../../assets/refetch.svg";
 import "./RandomMovie.css";
-
 const LazyRegisterLogin = lazy(() => import("../../UserComponents/RegisterLogin/RegisterLogin"));
 
 export const RandomMovie = ({ movie, refetch }: { movie: any, refetch: () => void }) => {

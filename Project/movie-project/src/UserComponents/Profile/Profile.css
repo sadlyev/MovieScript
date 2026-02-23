@@ -52,6 +52,11 @@
     gap: 24px;
     margin: 0 0 45px;
   }
+
+  @media (max-width: 375px) {
+    gap: 14px;
+    margin: 0 0 45px;
+  }
 }
 
 .profile_nav-btn {
@@ -66,6 +71,11 @@
   line-height: 32px;
   font-weight: 400;
   position: relative;
+
+  @media (max-width: 375px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 .profile_nav-btn--active::before {

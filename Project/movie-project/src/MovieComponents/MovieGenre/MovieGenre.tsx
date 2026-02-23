@@ -14,6 +14,7 @@ import img6 from "../../assets/img/genre6.png";
 import img7 from "../../assets/img/genre7.png";
 import img8 from "../../assets/img/genre8.png";
 import { Footer } from "../../MainPage1/Footer/Footer";
+import { Loader } from "../../Loader/Loader";
 
 const srcArray: any = [
   img1,
@@ -50,7 +51,7 @@ const MovieGenre = React.memo(() => {
 
   switch (myQuery.status) {
     case "pending":
-      return <span>Loading...</span>;
+      return (<Loader/>);
     case "error":
       return (
         <div>
@@ -66,7 +67,7 @@ const MovieGenre = React.memo(() => {
           <ul className="movie_genre-list">
             {myQuery.data.map((genre: string, i: number) => (
               <li className="movie_genre-item" key={i}><Link className="movie_genre-inner" to={`/movie/genre/${genre}`}>
-                <img src={srcArray[i + 1]} width="290" height="220"></img>
+                <img loading="lazy" src={srcArray[i + 1]} width="290" height="220"></img>
                 <span className="movie_genre-name">{genre[0].toUpperCase() + genre.slice(1).toLowerCase()}</span>
               </Link></li>
             ))}
