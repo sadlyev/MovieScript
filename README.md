@@ -1,3 +1,9 @@
-🎬 VK Marusya – Movie Streaming Platform (Beta)
+VK Marusya — Стриминговая платформа (Beta)
+VK Marusya — это веб-приложение для поиска фильмов, изучения жанров, просмотра трейлеров и управления списком избранного. Разработанное на React и TypeScript, оно предлагает адаптивный интерфейс, случайные рекомендации, подборки топ-фильмов IMDb и систему авторизации для сохранения ваших предпочтений. 
 
-VK Marusya is a web app where users can search movies, explore genres, watch trailers, and manage favorites. Built with React and TypeScript, it features a responsive UI, random movie suggestions, top IMDb films, and user authentication for saving favorite movies
+Основные возможности:
+Умный поиск: Быстрый поиск фильмов по названию и категориям.
+Трейлеры: Возможность посмотреть ролики перед выбором фильма.
+Личный кабинет: Авторизация для создания собственного списка «Избранного».
+Рекомендации: Система подбора случайных фильмов и актуальные топы IMDb.
+Современный стек: Высокая производительность благодаря React и типизации TypeScript
